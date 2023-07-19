@@ -16,6 +16,7 @@ function SearchBar() {
         onChange={({ target }) => setSearchValue(target.value)}
         required
       />
+
       <button type="submit" className="search_button">
         <BsSearch />
       </button>
