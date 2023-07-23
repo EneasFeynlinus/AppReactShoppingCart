@@ -1,22 +1,27 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import {BsFillCartPlusFill} from 'react-icons/bs';
+import { BsFillCartPlusFill } from 'react-icons/bs';
 
 import './ProductCard.css';
 
 function ProductCard({ data }) {
-  const {title, thumbnail, price} = data;
+  const { title, thumbnail, price } = data;
 
   return (
     <section className="product-card">
       <img
-        src={thumbnail}
+        src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}
         alt="product"
         className="card__image"
       />
 
       <div className="card__infos">
-        <h2 className="card__price">{price}</h2>
+        <h2 className="card__price">
+          {price.toLocaleString('pt-br', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
+        </h2>
         <h2 className="card__title">{title}</h2>
       </div>
 
